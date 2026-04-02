@@ -1,14 +1,15 @@
 Create table Armas(
-	id_arma serial primary key not null,
+	id_arma serial primary key,
 	nombre varchar(300) not null,
 	afinidad varchar(300) not null,
 	descripcion text not null,
 	obtencion text not null
 );
+
 Create table Personajes (
-	id_personajes serial Primary key not null,
-	nombre varchar(300) not null not null,
-	arma_inicialFK BIGINT not null,
+	id_personajes serial Primary key,
+	nombre varchar(300) not null,
+	arma_inicialFK Integer not null,
 	habilidad varchar(300) not null,
 	descripcion text not null,
 	obtencion text not null,
@@ -16,7 +17,7 @@ Create table Personajes (
 );
 
 Create table Estadísticas(
-	id_personajeFK BIGINT primary key not null,
+	id_personajeFK Integer primary key,
 	maxHp int not null,
 	regeneracionHp int not null,
 	supercura int not null,
@@ -55,19 +56,20 @@ Create table Estadísticas(
 	constraint fk_personajes foreign key(id_personajeFK) references Personajes(id_personajes)
 );
 
-Create table Libros(
-	id_libro serial primary key not null,
+Create table Tomos(
+	id_libro serial primary key,
 	nombre varchar (300) not null,
 	descripcion text not null,
-	estadistica_subir varchar(300) not null
+	estadistica_subir varchar(300) not null,
+obtencion text not null
 	
 );
 
 Create table Objetos(
-	id_objeto serial  primary key not null,
+	id_objeto serial primary key,
 	nombre varchar (300) not null,
-	descripcion text not null,
-	estadistica_subir varchar(300)
+descripcion text not null,
+	estadisticas_subir boolean not null,
+obtencion text not null,
+categoria varchar(300) not null
 );
-
-
