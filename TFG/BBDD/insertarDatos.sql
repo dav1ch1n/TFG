@@ -56,7 +56,7 @@ INSERT INTO Personajes (nombre, arma_inicialFK, habilidad, descripcion, obtencio
 
 
 Estadísticas
-INSERT INTO Estadisticas(id_personajeFK, maxHp, regeneracionHp, supercura, escudo, armadura, esquivar, robo_de_vida, espinas, danyo, probabilidad_critico, velocidad_ataque, danyo_critico, cantidad_proyectiles, rebote_proyectiles, tamanyo, velocidad_proyectil, duracion, danyo_elites, retroceso, velocidad_movimiento, salto_extra, altura_salto, suerte, dificultad, rango_recogida, aumento_XP, aumento_Oro, incremento_plata, aparicion_elites, multiplicador_potenciadores, caida_potenciador) VALUES
+INSERT INTO Estadisticas(id_personajeFK, maxhp, regeneracionhp, supercura, escudo, armadura, esquivar, robo_de_vida, espinas, daño, probabilidad_critico, velocidad_ataque, daño_critico, cantidad_proyectiles, rebote_proyectiles, tamaño, velocidad_proyectil, duracion, daño_elites, retroceso, velocidad_movimiento, salto_extra, altura_salto, suerte, dificultad, rango_recogida, aumento_XP, aumento_Oro, incremento_plata, aparicion_elites, multiplicador_potenciadores, caida_potenciador) VALUES
 
 -- 1. Zorro
 ((SELECT id_personajes FROM Personajes WHERE nombre = 'Zorro'), 100, 10, 0, 0, 0.00, 6.00, 0.00, 0, 1.00, 1.00, 100.00, 2.00, 0, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 1.04, 0, 8, 15.00, 0.00, 9, 1.00, 1.00, 1.50, 1.00, 1.00, 1.00),

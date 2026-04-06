@@ -1,22 +1,30 @@
 package BonkData.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name = "estadisticas")
+@JsonPropertyOrder({ "nombrePersonaje", "id" }) // Añade los campos que quieras priorizar
 public class Estadisticas {
-
     @Id
     private Long id; // Este ID será el mismo que el del Personaje
-
     @OneToOne
     @MapsId
     @JoinColumn(name = "id_personajeFK")
+    @JsonIgnore
     private Personajes personaje;
+    @JsonProperty("nombrePersonaje")
+    public String getNombreDelPersonaje() {
+        return (personaje != null) ? personaje.getNombre() : "Sin nombre";
+    }
 
-    private Integer maxHp;
-    private Integer regeneracionHp;
+    private Integer maxhp;
+    private Integer regeneracionhp;
     private Integer supercura;
     private Integer escudo;
 
@@ -25,17 +33,17 @@ public class Estadisticas {
     private BigDecimal robo_de_vida;
     private Integer espinas;
 
-    private BigDecimal danyo;
+    private BigDecimal daño;
     private BigDecimal probabilidad_critico;
     private BigDecimal velocidad_ataque;
-    private BigDecimal danyo_critico;
+    private BigDecimal daño_critico;
 
     private Integer cantidad_proyectiles;
     private Integer rebote_proyectiles;
-    private BigDecimal tamanyo;
+    private BigDecimal tamaño;
     private BigDecimal velocidad_proyectil;
     private BigDecimal duracion;
-    private BigDecimal danyo_elites;
+    private BigDecimal daño_elites;
     private BigDecimal retroceso;
 
     private BigDecimal velocidad_movimiento;
@@ -70,20 +78,20 @@ public class Estadisticas {
         this.personaje = personaje;
     }
 
-    public Integer getMaxHp() {
-        return maxHp;
+    public Integer getmaxhp() {
+        return maxhp;
     }
 
-    public void setMaxHp(Integer maxHp) {
-        this.maxHp = maxHp;
+    public void setmaxhp(Integer maxhp) {
+        this.maxhp = maxhp;
     }
 
-    public Integer getRegeneracionHp() {
-        return regeneracionHp;
+    public Integer getregeneracionhp() {
+        return regeneracionhp;
     }
 
-    public void setRegeneracionHp(Integer regeneracionHp) {
-        this.regeneracionHp = regeneracionHp;
+    public void setregeneracionhp(Integer regeneracionhp) {
+        this.regeneracionhp = regeneracionhp;
     }
 
     public Integer getEscudo() {
@@ -134,12 +142,12 @@ public class Estadisticas {
         this.espinas = espinas;
     }
 
-    public BigDecimal getDanyo() {
-        return danyo;
+    public BigDecimal getdaño() {
+        return daño;
     }
 
-    public void setDanyo(BigDecimal danyo) {
-        this.danyo = danyo;
+    public void setdaño(BigDecimal daño) {
+        this.daño = daño;
     }
 
     public BigDecimal getProbabilidad_critico() {
@@ -158,12 +166,12 @@ public class Estadisticas {
         this.velocidad_ataque = velocidad_ataque;
     }
 
-    public BigDecimal getDanyo_critico() {
-        return danyo_critico;
+    public BigDecimal getdaño_critico() {
+        return daño_critico;
     }
 
-    public void setDanyo_critico(BigDecimal danyo_critico) {
-        this.danyo_critico = danyo_critico;
+    public void setdaño_critico(BigDecimal daño_critico) {
+        this.daño_critico = daño_critico;
     }
 
     public Integer getRebote_proyectiles() {
@@ -182,12 +190,12 @@ public class Estadisticas {
         this.cantidad_proyectiles = cantidad_proyectiles;
     }
 
-    public BigDecimal getTamanyo() {
-        return tamanyo;
+    public BigDecimal gettamaño() {
+        return tamaño;
     }
 
-    public void setTamanyo(BigDecimal tamanyo) {
-        this.tamanyo = tamanyo;
+    public void settamaño(BigDecimal tamaño) {
+        this.tamaño = tamaño;
     }
 
     public BigDecimal getVelocidad_proyectil() {
@@ -198,12 +206,12 @@ public class Estadisticas {
         this.velocidad_proyectil = velocidad_proyectil;
     }
 
-    public BigDecimal getDanyo_elites() {
-        return danyo_elites;
+    public BigDecimal getdaño_elites() {
+        return daño_elites;
     }
 
-    public void setDanyo_elites(BigDecimal danyo_elites) {
-        this.danyo_elites = danyo_elites;
+    public void setdaño_elites(BigDecimal daño_elites) {
+        this.daño_elites = daño_elites;
     }
 
     public BigDecimal getDuracion() {

@@ -18,8 +18,8 @@ Create table Personajes (
 
 Create table Estadisticas(
 	id_personajeFK Integer primary key,
-	maxHp int not null,
-	regeneracionHp int not null,
+	maxhp int not null,
+	regeneracionhp int not null,
 	supercura int not null,
 	escudo int not null,
 	armadura decimal (5, 2) not null,
@@ -27,17 +27,17 @@ Create table Estadisticas(
 	robo_de_vida decimal (5, 2) not null,
 	espinas int not null,
 	
-	danyo decimal (5, 2) not null,
+	daño decimal (5, 2) not null,
 	probabilidad_critico decimal (5, 2) not null,
 	velocidad_ataque decimal (5, 2) not null,
-	danyo_critico decimal (5, 2) not null,
+	daño_critico decimal (5, 2) not null,
 	cantidad_proyectiles int not null,
 	rebote_proyectiles int not null,
 	
-	tamanyo decimal (5, 2) not null,
+	tamaño decimal (5, 2) not null,
 	velocidad_proyectil decimal (5, 2) not null,
 	duracion decimal (5, 2) not null,
-	danyo_elites decimal (5, 2) not null,
+	daño_elites decimal (5, 2) not null,
 	retroceso decimal (5, 2) not null,
 	velocidad_movimiento decimal (5, 2) not null,
 	
