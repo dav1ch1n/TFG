@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("BonkData/model/Tomos")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TomosController {
     private final TomosService tomService;
     public TomosController(TomosService tomService) {

@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("BonkData/model/Estadisticas")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EstadisticasController {
     private final EstadisticasService estService;
     public EstadisticasController(EstadisticasService estService) {

@@ -20,7 +20,7 @@ public class personajes {
 
     public personajes(){}
 
-    public personajes( String nombre, Integrer arma_inicialFK, String habilidad, String descripcion, String obtencion) {
+    public personajes( String nombre, Integer arma_inicialFK, String habilidad, String descripcion, String obtencion) {
         this.nombre = nombre;
         this.arma_inicialFK = arma_inicialFK;
         this.habilidad = habilidad;
@@ -41,10 +41,10 @@ public class personajes {
         this.nombre = nombre;
     }
 
-    public Integrer getArma_inicialFK() {
+    public Integer getArma_inicialFK() {
         return arma_inicialFK;
     }
-    public void setArma_inicialFK(Integrer arma_inicialFK) {
+    public void setArma_inicialFK(Integer arma_inicialFK) {
         this.arma_inicialFK = arma_inicialFK;
     }
 

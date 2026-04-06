@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 // Esta clase configura la documentación de la API usando OpenAPI (Swagger)
 // y también habilita los repositorios JPA para la parte de gestión de productos.
 @Configuration
-@EnableJpaRepositories(basePackages = "BonkDAta.repositorio")
+@EnableJpaRepositories(basePackages = "BonkData.repositorio")
 @OpenAPIDefinition(
         info = @Info(
                 title = "BonkDAta",

@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("BonkData/model/Objetos")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ObjetosController {
     private final ObjetosService objService;
     public ObjetosController(ObjetosService objService) {
