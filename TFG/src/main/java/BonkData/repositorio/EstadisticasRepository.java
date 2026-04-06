@@ -1,6 +1,6 @@
 package BonkData.repositorio;
 
-import BonnkData.model.Estadisticas;
+import BonkData.model.Estadisticas;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 

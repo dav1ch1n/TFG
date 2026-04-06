@@ -12,26 +12,26 @@ import java.util.List;
 public class TomosController {
     private final TomosService tomService;
     public TomosController(TomosService tomService) {
-        tomService = tomService;
+        this.tomService = tomService;
     }
     @GetMapping
     public List<Tomos> getAll(){
         return tomService.getAll();
     }
     @GetMapping("/{id}")
-    public Tomos getById(@PathVariable String id) {
+    public Tomos getById(@PathVariable Long id) {
         return tomService.getOne(id);
     }
     @PostMapping
-    public Tomos create(@RequestBody Tomos emp) {
-        return tomService.insert(emp);
+    public Tomos create(@RequestBody Tomos tom) {
+        return tomService.insert(tom);
     }
     @PutMapping("/{id}")
-    public Tomos update(@PathVariable String id, @RequestBody Tomos emp) {
-        return tomService.update(id, emp);
+    public Tomos update(@PathVariable Long id, @RequestBody Tomos tom) {
+        return tomService.update(id, tom);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable Long id) {
         tomService.delete(id);
     }
 }

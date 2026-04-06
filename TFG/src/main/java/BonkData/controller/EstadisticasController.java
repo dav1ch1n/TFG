@@ -12,26 +12,26 @@ import java.util.List;
 public class EstadisticasController {
     private final EstadisticasService estService;
     public EstadisticasController(EstadisticasService estService) {
-        estService = estService;
+        this.estService = estService;
     }
     @GetMapping
     public List<Estadisticas> getAll(){
         return estService.getAll();
     }
     @GetMapping("/{id}")
-    public Estadisticas getById(@PathVariable String id) {
+    public Estadisticas getById(@PathVariable Long id) {
         return estService.getOne(id);
     }
     @PostMapping
-    public Estadisticas create(@RequestBody Estadisticas emp) {
-        return estService.insert(emp);
+    public Estadisticas create(@RequestBody Estadisticas est) {
+        return estService.insert(est);
     }
     @PutMapping("/{id}")
-    public Estadisticas update(@PathVariable String id, @RequestBody Estadisticas emp) {
-        return estService.update(id, emp);
+    public Estadisticas update(@PathVariable Long id, @RequestBody Estadisticas est) {
+        return estService.update(id, est);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable Long id) {
         estService.delete(id);
     }
 }

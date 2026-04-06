@@ -1,28 +1,27 @@
 package BonkData.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="personajes")
-public class personajes {
+public class Personajes {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "idPersonajes")
     private Long idPersonajes;
     private String nombre;
     @ManyToOne
-    @JoinColumn(name = "arma_inicialfk") // El nombre exacto de la FK
-    private Armas armaInicial;
+    @JoinColumn(name = "Arma_inicialFK") // El nombre exacto de la FK
+    private Armas Arma_inicialFK;
     private String habilidad;
     private String descripcion;
     private String obtencion;
 
-    public personajes(){}
+    public Personajes(){}
 
-    public personajes( String nombre, Integer arma_inicialFK, String habilidad, String descripcion, String obtencion) {
+    public Personajes( String nombre, Armas Arma_inicialFK, String habilidad, String descripcion, String obtencion) {
         this.nombre = nombre;
-        this.arma_inicialFK = arma_inicialFK;
+        this.Arma_inicialFK = Arma_inicialFK;
         this.habilidad = habilidad;
         this.descripcion = descripcion;
         this.obtencion = obtencion;
@@ -41,11 +40,11 @@ public class personajes {
         this.nombre = nombre;
     }
 
-    public Integer getArma_inicialFK() {
-        return arma_inicialFK;
+    public Armas getArma_inicialFK() {
+        return Arma_inicialFK;
     }
-    public void setArma_inicialFK(Integer arma_inicialFK) {
-        this.arma_inicialFK = arma_inicialFK;
+    public void setArma_inicialFK(Armas Arma_inicialFK) {
+        this.Arma_inicialFK = Arma_inicialFK;
     }
 
     public String getHabilidad() {

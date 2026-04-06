@@ -11,8 +11,8 @@ INSERT INTO Armas (nombre, afinidad, descripcion, obtencion) VALUES
 ('Aegis', 'Cantidad, Daño, Retroceso, Tamaño, Velocidad de Ataque', 'Bloquea ataques y lanza ondas de choque', 'Bloquea 500 de daño con Armadura de Sir Oofie'), -- [cite: 49, 50, 51, 52]
 ('Aura', 'Daño, Tamaño, Velocidad de Ataque', 'Daña los enemigos a tu alrededor', 'No recibas daño por 2 minutos'), -- [cite: 54, 55, 56, 57]
 ('Hacha', 'Cantidad, Daño, Duración, Tamaño, Velocidad de Ataque', 'Lanza hachas giratorias que hacen daño en área', 'Mata a 2000 enemigos usando la espada'), -- [cite: 59, 60, 61, 62]
-('Bananarang', 'CAntidad, Daño, Tamaño, Velocidad de Ataque, Velocidad de proyectiles', 'Lanza bananas que regresan a ti', 'Encuentra la Banana oculta'), -- [cite: 64, 65, 66, 67]
-('Minas', 'CAntidad, Daño, Duracion, Velocidad de ataque', 'Coloca minas a tu alrededor que explotan cuando los enemigos se acercan', 'Mata 7500 enemigos con Cohete Suelto'), -- [cite: 69, 70, 71, 72]
+('Bananarang', 'Cantidad, Daño, Tamaño, Velocidad de Ataque, Velocidad de proyectiles', 'Lanza bananas que regresan a ti', 'Encuentra la Banana oculta'), -- [cite: 64, 65, 66, 67]
+('Minas', 'Cantidad, Daño, Duracion, Velocidad de ataque', 'Coloca minas a tu alrededor que explotan cuando los enemigos se acercan', 'Mata 7500 enemigos con Cohete Suelto'), -- [cite: 69, 70, 71, 72]
 ('Fideo Espacial', 'Daño, Duaracion, Tamaño, Velocidad de ataque', 'Se adhiere a un enemigo cercano. Daño a los enemigos en el camino', 'Completa Desierto nivel 2 como Tony McVeloz'), -- [cite: 74, 75, 76, 77]
 ('Rifle de Francotirador', 'Cantidad, Daño, Tamaño, Velocidad de Ataque', 'Dispara balas perforantes. Se puede apuntar manualmente', 'Lleva el tomo de Precisión a nivel 10'), -- [cite: 79, 80, 81, 82]
 ('Cohete Suelto', 'Cantidad, Daño, Probabilidad de Crítico, Velocidad de Ataque, Velocidad de Proyectil', 'Lanza misiles teledirigidos', 'Mata a 15000 enemigos como Cl4nk'), -- [cite: 84, 85, 86, 87]
@@ -37,7 +37,7 @@ INSERT INTO Personajes (nombre, arma_inicialFK, habilidad, descripcion, obtencio
 ('Calcio', (SELECT id_arma FROM Armas WHERE nombre = 'Hueso'), 'Tu velocidad sube con el tiempo, pero se reduce a la mitad si recibes daño. Más velocidad, más daño', 'Un necro-surfer que se marca las mejores acrobacias', 'Viene de Inicio'),
 ('Megachad', (SELECT id_arma FROM Armas WHERE nombre = 'Aura'), 'Flexea para evitar daño! CD-0,2s +2,5% Daño', 'Domina la mandibula más perfecta y poderosa.', 'Consigue el Tomo de Daño al nivel 7'),
 ('Ogro', (SELECT id_arma FROM Armas WHERE nombre = 'Hacha'), 'Gana 1,5 de Daño por nivel', 'Grande y fuerte, con las habilidades de pensar de un calcetín mojado', 'Elimina 15000 goblins'),
-('Cl4nck', (SELECT id_arma FROM Armas WHERE nombre = 'Revolver'), 'Gana 1% de Probabilidad de Crítico por nivel', 'No se cómo se pronuncia su nombre', 'Completa Bosque Nivel 1'),
+('Cl4nck', (SELECT id_arma FROM Armas WHERE nombre = 'Revólver'), 'Gana 1% de Probabilidad de Crítico por nivel', 'No se cómo se pronuncia su nombre', 'Completa Bosque Nivel 1'),
 ('Atenea', (SELECT id_arma FROM Armas WHERE nombre = 'Aegis'), 'Haz mas daño cuando tienes menos vida. Gana 2 de Espinas por nivel', 'Capitan América pero pedido de Temu(con descuento)', 'Consigue el Tomo de Espinas al nivel 9'),
 ('Robinetta', (SELECT id_arma FROM Armas WHERE nombre = 'Arco'), 'Gana 1% Aumento de Oro por nivel. Además aumenta un poco el Daño en función del oro total en el inventario', 'Roba a los pobres, da a los ricos.', 'Completa Bosque nivel 2'),
 ('Monke', (SELECT id_arma FROM Armas WHERE nombre = 'Bananarang'), 'Trepa muros y gana +2Max HP por nivel', 'Nadie sabe de dónde sacó las gafas de sol. Nadie pregunta', 'Encuentra y libera a Monke en el bosque'),
@@ -49,14 +49,14 @@ INSERT INTO Personajes (nombre, arma_inicialFK, habilidad, descripcion, obtencio
 ('Hombre Espacial', (SELECT id_arma FROM Armas WHERE nombre = 'Agujero Negro'), 'Gana 1% de Aumento de XP por nivel', 'Hombre Espacial está baneado de 7 planetas y de la mayoría de las tiendas de regalos de la NASA', 'Completa 6 desafíos. Compra Agujero Negro'),
 ('Bandido', (SELECT id_arma FROM Armas WHERE nombre = 'Dexecutioner'), 'Gana 1% de Velocidad de Ataque por nivel', 'Un pillo astuto con espada afilada', 'Encuentra y derrota a Bandido en el Desierto'),
 ('Ninja', (SELECT id_arma FROM Armas WHERE nombre = 'Katana'), 'Ejecútalo a un enemigo al esquivarlo. Además, ganas 0,5% Esquivar por nivel', '¡Super veloz y escurridizo! Ni siquiera ha pagado impuestos desde 2014. ¡Está en llamas!', 'Completa Desierto Nivel 1'),
-('Vlad', (SELECT id_arma FROM Armas WHERE nombre = 'Magia sangrienta'), 'Gana 1% de Robo de Vida por nivel', 'Parece malvado, pero en realidad es un buen tipo. Siempre te saluda en el supermercado. Un tipo relajado', 'Completa Desierto Nivel 2'),
+('Vlad', (SELECT id_arma FROM Armas WHERE nombre = 'Magia Sangrienta'), 'Gana 1% de Robo de Vida por nivel', 'Parece malvado, pero en realidad es un buen tipo. Siempre te saluda en el supermercado. Un tipo relajado', 'Completa Desierto Nivel 2'),
 ('Sir Chadwell', (SELECT id_arma FROM Armas WHERE nombre = 'Espada Corrupta'), 'Gana 1% de Dificultad por nivel', 'El novio de la esposa de Sir Oofie. Le compró una armadura nueva y le deja quedarse despierto después de las 8:30. ¡Buen tipo!', 'Completa Bosque nivel 3. Compra Espada Corrupta'),
 ('Cabezadado', (SELECT id_arma FROM Armas WHERE nombre = 'Dado'), '¡Tira los dados y mejora una estadística al azar cuando subas de nivel!', 'Su número favorito es el 7. ¿Quién le dice que el dado no llega tan lejos?', 'Completa 100 misiones. Compra Dado'),
 ('Roberto', (SELECT id_arma FROM Armas WHERE nombre = 'Guadaña'), 'Cofre gratis cada 60 seg, Bajando hasta 120 seg. También puede flotar (un poco)', 'Afirma que flota. Los científicos siguen investigando', 'Mata a Steve el Espeluznante. Compra Guadaña');
 
 
 Estadísticas
-INSERT INTO estadísticas(id_personajeFK, maxHp, regeneracionHp, supercura, escudo, armadura, esquivar, robo_de_vida, espinas, danyo, probabilidad_critico, velocidad_ataque, danyo_critico, cantidad_proyectiles, rebote_proyectiles, tamanyo, velocidad_proyectil, duracion, danyo_elites, retroceso, velocidad_movimiento, salto_extra, altura_salto, suerte, dificultad, rango_recogida, aumento_XP, aumento_Oro, incremento_plata, aparicion_elites, multiplicador_potenciadores, caida_potenciador) VALUES
+INSERT INTO Estadisticas(id_personajeFK, maxHp, regeneracionHp, supercura, escudo, armadura, esquivar, robo_de_vida, espinas, danyo, probabilidad_critico, velocidad_ataque, danyo_critico, cantidad_proyectiles, rebote_proyectiles, tamanyo, velocidad_proyectil, duracion, danyo_elites, retroceso, velocidad_movimiento, salto_extra, altura_salto, suerte, dificultad, rango_recogida, aumento_XP, aumento_Oro, incremento_plata, aparicion_elites, multiplicador_potenciadores, caida_potenciador) VALUES
 
 -- 1. Zorro
 ((SELECT id_personajes FROM Personajes WHERE nombre = 'Zorro'), 100, 10, 0, 0, 0.00, 6.00, 0.00, 0, 1.00, 1.00, 100.00, 2.00, 0, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 1.04, 0, 8, 15.00, 0.00, 9, 1.00, 1.00, 1.50, 1.00, 1.00, 1.00),

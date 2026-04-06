@@ -1,6 +1,5 @@
 package BonkData.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,16 +11,14 @@ public class Armas {
     private Long id;
     private String nombre;
     private String descripcion;
-    private String tipo;
     private String obtencion;
 
     public Armas() {}
 
-    public Armas(String nombre, String descripcion, String obtencion, String tipo) {
+    public Armas(String nombre, String descripcion, String obtencion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.obtencion = obtencion;
-        this.tipo = tipo;
     }
 
     public Long getId() {
@@ -45,12 +42,6 @@ public class Armas {
         this.descripcion = descripcion;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
 
     public String getObtencion() {
         return obtencion;

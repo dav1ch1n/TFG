@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonajesSerivice {
+public class PersonajesService {
     @Autowired
     private PersonajesRepository perRepositorio;
     public Personajes getOne(Long id) {

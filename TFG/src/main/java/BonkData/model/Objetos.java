@@ -1,6 +1,5 @@
 package BonkData.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.*;
 
 @Entity

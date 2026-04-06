@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EstadisticasSerivice {
+public class EstadisticasService {
     @Autowired
     private EstadisticasRepository estRepositorio;
     public Estadisticas getOne(Long id) {

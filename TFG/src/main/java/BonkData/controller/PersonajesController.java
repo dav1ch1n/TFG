@@ -12,26 +12,26 @@ import java.util.List;
 public class PersonajesController {
     private final PersonajesService perService;
     public PersonajesController(PersonajesService perService) {
-        perService = perService;
+        this.perService = perService;
     }
     @GetMapping
     public List<Personajes> getAll(){
         return perService.getAll();
     }
     @GetMapping("/{id}")
-    public Personajes getById(@PathVariable String id) {
+    public Personajes getById(@PathVariable Long id) {
         return perService.getOne(id);
     }
     @PostMapping
-    public Personajes create(@RequestBody Personajes emp) {
-        return perService.insert(emp);
+    public Personajes create(@RequestBody Personajes per) {
+        return perService.insert(per);
     }
     @PutMapping("/{id}")
-    public Personajes update(@PathVariable String id, @RequestBody Personajes emp) {
-        return perService.update(id, emp);
+    public Personajes update(@PathVariable Long id, @RequestBody Personajes per) {
+        return perService.update(id, per);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable Long id) {
         perService.delete(id);
     }
 }

@@ -1,8 +1,7 @@
 package BonkData.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.persistence.*;
-import java.math.Decimal;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "estadisticas")
@@ -14,44 +13,44 @@ public class Estadisticas {
     @OneToOne
     @MapsId
     @JoinColumn(name = "id_personajeFK")
-    private Personaje personaje;
+    private Personajes personaje;
 
     private Integer maxHp;
     private Integer regeneracionHp;
     private Integer supercura;
     private Integer escudo;
 
-    private Decimal armadura;
-    private Decimal esquivar;
-    private Decimal robo_de_vida;
+    private BigDecimal armadura;
+    private BigDecimal esquivar;
+    private BigDecimal robo_de_vida;
     private Integer espinas;
 
-    private Decimal danyo;
-    private Decimal probabilidad_critico;
-    private Decimal velocidad_ataque;
-    private Decimal danyo_critico;
+    private BigDecimal danyo;
+    private BigDecimal probabilidad_critico;
+    private BigDecimal velocidad_ataque;
+    private BigDecimal danyo_critico;
 
     private Integer cantidad_proyectiles;
     private Integer rebote_proyectiles;
-    private Decimal tamanyo;
-    private Decimal velocidad_proyectil;
-    private Decimal duracion;
-    private Decimal danyo_elites;
-    private Decimal retroceso;
+    private BigDecimal tamanyo;
+    private BigDecimal velocidad_proyectil;
+    private BigDecimal duracion;
+    private BigDecimal danyo_elites;
+    private BigDecimal retroceso;
 
-    private Decimal velocidad_movimiento;
+    private BigDecimal velocidad_movimiento;
     private Integer salto_extra;
     private Integer altura_salto;
 
-    private Decimal suerte;
-    private Decimal dificultad;
+    private BigDecimal suerte;
+    private BigDecimal dificultad;
     private Integer rango_recogida;
-    private Decimal aumento_XP;
-    private Decimal aumento_Oro;
-    private Decimal incremento_plata;
-    private Decimal aparicion_elites;
-    private Decimal multiplicador_potenciadores;
-    private Decimal caida_potenciador;
+    private BigDecimal aumento_XP;
+    private BigDecimal aumento_Oro;
+    private BigDecimal incremento_plata;
+    private BigDecimal aparicion_elites;
+    private BigDecimal multiplicador_potenciadores;
+    private BigDecimal caida_potenciador;
 
     public Estadisticas() {}
 
@@ -63,11 +62,11 @@ public class Estadisticas {
         this.id = id;
     }
 
-    public Personaje getPersonaje() {
+    public Personajes getPersonaje() {
         return personaje;
     }
 
-    public void setPersonaje(Personaje personaje) {
+    public void setPersonaje(Personajes personaje) {
         this.personaje = personaje;
     }
 
@@ -103,27 +102,27 @@ public class Estadisticas {
         this.supercura = supercura;
     }
 
-    public Decimal getArmadura() {
+    public BigDecimal getArmadura() {
         return armadura;
     }
 
-    public void setArmadura(Decimal armadura) {
+    public void setArmadura(BigDecimal armadura) {
         this.armadura = armadura;
     }
 
-    public Decimal getEsquivar() {
+    public BigDecimal getEsquivar() {
         return esquivar;
     }
 
-    public void setEsquivar(Decimal esquivar) {
+    public void setEsquivar(BigDecimal esquivar) {
         this.esquivar = esquivar;
     }
 
-    public Decimal getRobo_de_vida() {
+    public BigDecimal getRobo_de_vida() {
         return robo_de_vida;
     }
 
-    public void setRobo_de_vida(Decimal robo_de_vida) {
+    public void setRobo_de_vida(BigDecimal robo_de_vida) {
         this.robo_de_vida = robo_de_vida;
     }
 
@@ -135,35 +134,35 @@ public class Estadisticas {
         this.espinas = espinas;
     }
 
-    public Decimal getDanyo() {
+    public BigDecimal getDanyo() {
         return danyo;
     }
 
-    public void setDanyo(Decimal danyo) {
+    public void setDanyo(BigDecimal danyo) {
         this.danyo = danyo;
     }
 
-    public Decimal getProbabilidad_critico() {
+    public BigDecimal getProbabilidad_critico() {
         return probabilidad_critico;
     }
 
-    public void setProbabilidad_critico(Decimal probabilidad_critico) {
+    public void setProbabilidad_critico(BigDecimal probabilidad_critico) {
         this.probabilidad_critico = probabilidad_critico;
     }
 
-    public Decimal getVelocidad_ataque() {
+    public BigDecimal getVelocidad_ataque() {
         return velocidad_ataque;
     }
 
-    public void setVelocidad_ataque(Decimal velocidad_ataque) {
+    public void setVelocidad_ataque(BigDecimal velocidad_ataque) {
         this.velocidad_ataque = velocidad_ataque;
     }
 
-    public Decimal getDanyo_critico() {
+    public BigDecimal getDanyo_critico() {
         return danyo_critico;
     }
 
-    public void setDanyo_critico(Decimal danyo_critico) {
+    public void setDanyo_critico(BigDecimal danyo_critico) {
         this.danyo_critico = danyo_critico;
     }
 
@@ -183,51 +182,51 @@ public class Estadisticas {
         this.cantidad_proyectiles = cantidad_proyectiles;
     }
 
-    public Decimal getTamanyo() {
+    public BigDecimal getTamanyo() {
         return tamanyo;
     }
 
-    public void setTamanyo(Decimal tamanyo) {
+    public void setTamanyo(BigDecimal tamanyo) {
         this.tamanyo = tamanyo;
     }
 
-    public Decimal getVelocidad_proyectil() {
+    public BigDecimal getVelocidad_proyectil() {
         return velocidad_proyectil;
     }
 
-    public void setVelocidad_proyectil(Decimal velocidad_proyectil) {
+    public void setVelocidad_proyectil(BigDecimal velocidad_proyectil) {
         this.velocidad_proyectil = velocidad_proyectil;
     }
 
-    public Decimal getDanyo_elites() {
+    public BigDecimal getDanyo_elites() {
         return danyo_elites;
     }
 
-    public void setDanyo_elites(Decimal danyo_elites) {
+    public void setDanyo_elites(BigDecimal danyo_elites) {
         this.danyo_elites = danyo_elites;
     }
 
-    public Decimal getDuracion() {
+    public BigDecimal getDuracion() {
         return duracion;
     }
 
-    public void setDuracion(Decimal duracion) {
+    public void setDuracion(BigDecimal duracion) {
         this.duracion = duracion;
     }
 
-    public Decimal getRetroceso() {
+    public BigDecimal getRetroceso() {
         return retroceso;
     }
 
-    public void setRetroceso(Decimal retroceso) {
+    public void setRetroceso(BigDecimal retroceso) {
         this.retroceso = retroceso;
     }
 
-    public Decimal getVelocidad_movimiento() {
+    public BigDecimal getVelocidad_movimiento() {
         return velocidad_movimiento;
     }
 
-    public void setVelocidad_movimiento(Decimal velocidad_movimiento) {
+    public void setVelocidad_movimiento(BigDecimal velocidad_movimiento) {
         this.velocidad_movimiento = velocidad_movimiento;
     }
 
@@ -247,19 +246,19 @@ public class Estadisticas {
         this.altura_salto = altura_salto;
     }
 
-    public Decimal getSuerte() {
+    public BigDecimal getSuerte() {
         return suerte;
     }
 
-    public void setSuerte(Decimal suerte) {
+    public void setSuerte(BigDecimal suerte) {
         this.suerte = suerte;
     }
 
-    public Decimal getDificultad() {
+    public BigDecimal getDificultad() {
         return dificultad;
     }
 
-    public void setDificultad(Decimal dificultad) {
+    public void setDificultad(BigDecimal dificultad) {
         this.dificultad = dificultad;
     }
 
@@ -271,51 +270,51 @@ public class Estadisticas {
         this.rango_recogida = rango_recogida;
     }
 
-    public Decimal getAumento_XP() {
+    public BigDecimal getAumento_XP() {
         return aumento_XP;
     }
 
-    public void setAumento_XP(Decimal aumento_XP) {
+    public void setAumento_XP(BigDecimal aumento_XP) {
         this.aumento_XP = aumento_XP;
     }
 
-    public Decimal getAumento_Oro() {
+    public BigDecimal getAumento_Oro() {
         return aumento_Oro;
     }
 
-    public void setAumento_Oro(Decimal aumento_Oro) {
+    public void setAumento_Oro(BigDecimal aumento_Oro) {
         this.aumento_Oro = aumento_Oro;
     }
 
-    public Decimal getIncremento_plata() {
+    public BigDecimal getIncremento_plata() {
         return incremento_plata;
     }
 
-    public void setIncremento_plata(Decimal incremento_plata) {
+    public void setIncremento_plata(BigDecimal incremento_plata) {
         this.incremento_plata = incremento_plata;
     }
 
-    public Decimal getMultiplicador_potenciadores() {
+    public BigDecimal getMultiplicador_potenciadores() {
         return multiplicador_potenciadores;
     }
 
-    public void setMultiplicador_potenciadores(Decimal multiplicador_potenciadores) {
+    public void setMultiplicador_potenciadores(BigDecimal multiplicador_potenciadores) {
         this.multiplicador_potenciadores = multiplicador_potenciadores;
     }
 
-    public Decimal getAparicion_elites() {
+    public BigDecimal getAparicion_elites() {
         return aparicion_elites;
     }
 
-    public void setAparicion_elites(Decimal aparicion_elites) {
+    public void setAparicion_elites(BigDecimal aparicion_elites) {
         this.aparicion_elites = aparicion_elites;
     }
 
-    public Decimal getCaida_potenciador() {
+    public BigDecimal getCaida_potenciador() {
         return caida_potenciador;
     }
 
-    public void setCaida_potenciador(Decimal caida_potenciador) {
+    public void setCaida_potenciador(BigDecimal caida_potenciador) {
         this.caida_potenciador = caida_potenciador;
     }
 }

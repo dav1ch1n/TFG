@@ -12,26 +12,26 @@ import java.util.List;
 public class ArmasController {
     private final ArmasService armService;
     public ArmasController(ArmasService armService) {
-        armService = armService;
+        this.armService = armService;
     }
     @GetMapping
     public List<Armas> getAll(){
         return armService.getAll();
     }
     @GetMapping("/{id}")
-    public Armas getById(@PathVariable String id) {
+    public Armas getById(@PathVariable Long id) {
         return armService.getOne(id);
     }
     @PostMapping
-    public Armas create(@RequestBody Armas emp) {
-        return armService.insert(emp);
+    public Armas create(@RequestBody Armas arm) {
+        return armService.insert(arm);
     }
     @PutMapping("/{id}")
-    public Armas update(@PathVariable String id, @RequestBody Armas emp) {
-        return armService.update(id, emp);
+    public Armas update(@PathVariable Long id, @RequestBody Armas arm) {
+        return armService.update(id, arm);
     }
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable String id) {
+    public void delete(@PathVariable Long id) {
         armService.delete(id);
     }
 }
