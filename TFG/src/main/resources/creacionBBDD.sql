@@ -1,4 +1,4 @@
-Create table Armas(
+CREATE TABLE IF NOT EXISTS Armas(
 	id_arma serial primary key,
 	nombre varchar(300) not null,
 	afinidad varchar(300) not null,
@@ -6,7 +6,7 @@ Create table Armas(
 	obtencion text not null
 );
 
-Create table Personajes (
+CREATE TABLE IF NOT EXISTS Personajes (
 	id_personajes serial Primary key,
 	nombre varchar(300) not null,
 	arma_inicialFK Integer not null,
@@ -16,7 +16,7 @@ Create table Personajes (
 	constraint fk_armas foreign key(arma_inicialFK) references Armas(id_arma)
 );
 
-Create table Estadisticas(
+CREATE TABLE IF NOT EXISTS Estadisticas(
 	id_personajeFK Integer primary key,
 	maxhp int not null,
 	regeneracionhp int not null,
@@ -56,20 +56,20 @@ Create table Estadisticas(
 	constraint fk_personajes foreign key(id_personajeFK) references Personajes(id_personajes)
 );
 
-Create table Tomos(
+CREATE TABLE IF NOT EXISTS Tomos(
 	id_libro serial primary key,
 	nombre varchar (300) not null,
 	descripcion text not null,
 	estadistica_subir varchar(300) not null,
-obtencion text not null
+    obtencion text not null
 	
 );
 
-Create table Objetos(
+CREATE TABLE IF NOT EXISTS Objetos(
 	id_objeto serial primary key,
 	nombre varchar (300) not null,
-descripcion text not null,
+    descripcion text not null,
 	estadisticas_subir boolean not null,
-obtencion text not null,
-categoria varchar(300) not null
+    obtencion text not null,
+    categoria varchar(300) not null
 );

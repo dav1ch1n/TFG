@@ -1,4 +1,5 @@
-Armas
+TRUNCATE TABLE Estadisticas, Personajes, Armas, Objetos, Tomos RESTART IDENTITY CASCADE;
+--Armas
 INSERT INTO Armas (nombre, afinidad, descripcion, obtencion) VALUES
 ('Caminador de Fuego', 'Cantidad, Daño, Duración, Tamaño, Velocidad de Ataque', 'Deja un rastro de fuego a tu paso', 'La tienes de inicio, ya está desbloqueada'), -- [cite: 9, 10, 11, 12]
 ('Espada', 'Cantidad, Daño, Retroceso, Tamaño, Velocidad de Ataque', 'Corta a través de múltiples enemigos', 'La tienes de inicio, ya está desbloqueada'), -- [cite: 14, 15, 16, 17]
@@ -30,7 +31,7 @@ INSERT INTO Armas (nombre, afinidad, descripcion, obtencion) VALUES
 ('Espada Heroica', 'Cantidad de Proyectiles, Daño, Tamaño, Velocidad de Ataque, Velocidad de Proyectil', 'Atraviesa varios enemigos y lanza un proyectil cortante', 'Derrota a un jefe de etapa sin agarrar objetos, sin power-up y sin usar santuarios'), -- [cite: 144, 145, 146, 147]
 ('Espada Corrupta', 'Cantidad de Proyectil, Daño, Tamaño, Velocidad de Ataque, Velocidad de Proyectil', 'Corta en ambas direcciones. Hace más daño cuando tienes poca vida', 'Lleva el tomo maldito a nivel 20 en menos de 10 minutos'), -- [cite: 149, 150, 151, 152]
 ('Guadaña', 'Cantidad de Proyectiles, Daño, Retroceso, Tamaño, Velocidad de Ataque', 'Corta en círculo a tu alrededor. Matar enemigos élite carga un ataque más fuerte.', 'Mata a Big Bob en Cementerio'); -- [cite: 154, 155, 156, 157]
-Personajes
+--Personajes
 INSERT INTO Personajes (nombre, arma_inicialFK, habilidad, descripcion, obtencion) VALUES
 ('Zorro', (SELECT id_arma FROM Armas WHERE nombre = 'Bastón de Fuego'), 'Gana 1,5% de Suerte por nivel', 'Ágil y con una suerte sobrenatural.', 'Viene de Inicio'),
 ('Sir Oofie', (SELECT id_arma FROM Armas WHERE nombre = 'Espada'), 'Gana 1% de Armadura por nivel', 'Es lento, pero su armadura lo hace bastante resistento.', 'Viene de Inicio'),
@@ -55,7 +56,7 @@ INSERT INTO Personajes (nombre, arma_inicialFK, habilidad, descripcion, obtencio
 ('Roberto', (SELECT id_arma FROM Armas WHERE nombre = 'Guadaña'), 'Cofre gratis cada 60 seg, Bajando hasta 120 seg. También puede flotar (un poco)', 'Afirma que flota. Los científicos siguen investigando', 'Mata a Steve el Espeluznante. Compra Guadaña');
 
 
-Estadísticas
+--Estadísticas
 INSERT INTO Estadisticas(id_personajeFK, maxhp, regeneracionhp, supercura, escudo, armadura, esquivar, robo_de_vida, espinas, daño, probabilidad_critico, velocidad_ataque, daño_critico, cantidad_proyectiles, rebote_proyectiles, tamaño, velocidad_proyectil, duracion, daño_elites, retroceso, velocidad_movimiento, salto_extra, altura_salto, suerte, dificultad, rango_recogida, aumento_XP, aumento_Oro, incremento_plata, aparicion_elites, multiplicador_potenciadores, caida_potenciador) VALUES
 
 -- 1. Zorro
@@ -121,7 +122,7 @@ INSERT INTO Estadisticas(id_personajeFK, maxhp, regeneracionhp, supercura, escud
 -- 21. Roberto (Stats base, ajustar según la captura)
 ((SELECT id_personajes FROM Personajes WHERE nombre = 'Roberto'), 100, 10, 0, 0, 0.00, 1.00, 0.00, 0, 1.00, 1.00, 100.00, 2.00, 0, 0, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 0, 8, 0.00, 0.00, 5, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00);
 
-Tomos
+--Tomos
 INSERT INTO Tomos (nombre, descripcion, estadistica_subir, obtencion) VALUES
 ('Tomo de Agilidad', 'Qué tan rápido te mueves', '+Velocidad de movimiento', 'Lo tienes ya desbloqueado'),
 ('Tomo de Tamaño', 'Cuán grandes son tus ataques, proyectiles, explosiones y más', '+Tamaño', 'Lo tienes ya desbloqueado'),
@@ -147,7 +148,7 @@ INSERT INTO Tomos (nombre, descripcion, estadistica_subir, obtencion) VALUES
 ('Tomo Maldito', 'La dificultad incrementa la cantidad, salud, velocidad y fuerza de los enemigos. Sólo los gamers escogen esta.', '+Dificultad', 'Derrota al Jefe de etapa en menos de 5 minutos'),
 ('Tomo del Caos', 'Aumenta una estadística al azar', 'Sube todo', 'Carga todos los santuarios de Carga de Energia en una partida de Nivel 3 sin salir de la zona de carga');
 
-Objetos
+--Objetos
 INSERT INTO Objetos (nombre, descripcion, estadisticas_subir, obtencion, categoria) VALUES
 -- COMÚN
 ('Borgar', '+2% de probabilidad de Borgar al matar', FALSE, 'Viene de Inicio', 'comun'),

@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("BonkData/model/Armas")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173") // Puerto por defecto
 public class ArmasController {
     private final ArmasService armService;
     public ArmasController(ArmasService armService) {

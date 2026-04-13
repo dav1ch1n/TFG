@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("BonkData/model/Tomos")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173") // Puerto por defecto
 public class TomosController {
     private final TomosService tomService;
     public TomosController(TomosService tomService) {
