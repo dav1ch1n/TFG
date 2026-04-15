@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("BonkData/model/Armas")
+@RequestMapping("/api/armas")
 @CrossOrigin(origins = "http://localhost:5173") // Puerto por defecto
 public class ArmasController {
     private final ArmasService armService;

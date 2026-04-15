@@ -1,44 +1,28 @@
-import { useEffect, useState } from 'react'
-import axios from 'axios'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Personajes from './Pages/Personajes' // Necesitamos crear esto ahora
+import './App.css';
+
+const VistaConstruccion = ({ nombre }) => (
+  <div style={{ padding: '50px', textAlign: 'center' }}>
+    <h1>Sección de {nombre}</h1>
+    <p>Próximamente... estamos conectando con el Back-end.</p>
+    <a href="/">Volver al inicio</a>
+  </div>
+);
 
 function App() {
-  // Aquí guardaremos los personajes que vengan de Java
-  const [personajes, setPersonajes] = useState([])
-
-  // Este useEffect se ejecuta una sola vez al cargar la página
-  useEffect(() => {
-    // Asegúrate de que tu Spring Boot está arrancado antes de hacer esto
-    axios.get('http://localhost:8080/api/personajes')
-      .then(respuesta => {
-        console.log("Datos recibidos:", respuesta.data);
-        setPersonajes(respuesta.data);
-      })
-      .catch(error => {
-        console.error("Error al conectar con la API:", error);
-      })
-  }, [])
-
   return (
-    <div>
-      <h1>Wiki Megabonk</h1>
-      <h2>Lista de Personajes:</h2>
-
-      <div className="card-container">
-        {personajes.length === 0 ? (
-          <p>Cargando personajes o no hay datos...</p>
-        ) : (
-          personajes.map((personaje) => (
-            <div key={personaje.idPersonajes} className="card">
-              <h3>{personaje.nombre}</h3>
-              <p><strong>Arma:</strong> {personaje.nombreArma}</p>
-              <p><strong>Habilidad:</strong> {personaje.habilidad}</p>
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/personajes" element={<Personajes />} />
+        <Route path="/armas" element={<VistaConstruccion nombre="Armas" />} />
+        <Route path="/tomos" element={<VistaConstruccion nombre="Tomos" />} />
+        <Route path="/objetos" element={<VistaConstruccion nombre="Objetos" />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

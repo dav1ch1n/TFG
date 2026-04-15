@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("BonkData/model/Estadisticas")
-@CrossOrigin(origins = "http://localhost:5173") // Puerto por defecto
+@RequestMapping("/api/estadisticas")
+@CrossOrigin(origins = "http://localhost:5173")
 public class EstadisticasController {
     private final EstadisticasService estService;
     public EstadisticasController(EstadisticasService estService) {

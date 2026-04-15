@@ -2,13 +2,15 @@ package BonkData.controller;
 
 import BonkData.model.Personajes;
 import BonkData.service.PersonajesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
-@RequestMapping("BonkData/model/Personajes")
-@CrossOrigin(origins = "http://localhost:5173") // Puerto por defecto
+@RequestMapping("/api/personajes")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PersonajesController {
     private final PersonajesService perService;
     public PersonajesController(PersonajesService perService) {
