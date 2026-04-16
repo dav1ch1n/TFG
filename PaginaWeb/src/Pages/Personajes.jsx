@@ -1,82 +1,128 @@
 import { useEffect, useState } from 'react';
 import { PersonajesService } from '../Service/PersonajesService';
+import { EstadisticasService } from '../Service/EstadisticasService';
+import TablasGenerica from '../Componentes/TablasGenericas.jsx';
 import Modal from '../Componentes/Modal.jsx';
 
 function Personajes() {
   const [personajes, setPersonajes] = useState([]);
-
   // Estado para controlar qué personaje está seleccionado para el Popup
   const [personajeSeleccionado, setPersonajeSeleccionado] = useState(null);
+  // Estadisticas
+  const [stats, setStats] = useState(null);
 
   useEffect(() => {
     PersonajesService().then(setPersonajes).catch(console.error);
   }, []);
 
+const abrirDetalles = async (p) => {
+  setPersonajeSeleccionado(p);
+  setStats(null);
+  try {
+      const data = await EstadisticasService(p.idPersonajes);
+
+      // BUSQUEDA DINÁMICA:
+      // Si 'data' es un Array, buscamos el objeto donde 'nombrePersonaje' coincida con 'p.nombre'
+      const estadisticasReales = Array.isArray(data)
+        ? data.find(s => s.nombrePersonaje === p.nombre)
+        : data;
+      // Si por alguna razón .find() no encuentra nada, 'estadisticasReales' será undefined.
+      if (!estadisticasReales) {
+          console.warn("No se encontraron estadísticas para:", p.nombre);
+      }
+      setStats(estadisticasReales);
+    } catch (error) {
+      console.error("Error cargando estadísticas", error);
+    }
+};
+
   return (
-    <div style={{ padding: '20px', color: 'white' }}>
-      <h2>Lista de Personajes</h2>
-      <a href="/" style={{ color: '#aaa' }}>⬅ Volver al Menú</a>
+    <>
+      {/* 1. USAMOS LA TABLA COMÚN */}
+      <TablasGenerica
+        titulo="Compendio de Personajes"
+        datos={personajes}
+        carpetaImg="Personajes"
+        campoSubtitulo="descripcion"
+        onInfoClick={abrirDetalles}
+      />
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px', marginTop: '20px' }}>
-        {personajes.map((p) => (
-          // Tabla padre
-          <div key={p.idPersonajes} style={{ display: 'flex', backgroundColor: '#34495e', padding: '15px', borderRadius: '8px', alignItems: 'center' }}>
-
-            <div style={{ flex: '1' }}>
-              <div style={{ width: '80px', height: '80px', backgroundColor: '#1abc9c', borderRadius: '8px', display: 'flex', alignItems:'center', justifyContent:'center'}}>
-                IMG
-              </div>
-            </div>
-
-            <div style={{ flex: '3', padding: '0 20px' }}>
-              <h3>{p.nombre}</h3>
-              <p>{p.descripcion}</p>
-            </div>
-
-            <div style={{ flex: '1', textAlign: 'right' }}>
-              <button
-                onClick={() => setPersonajeSeleccionado(p)}
-                style={{ padding: '10px 20px', cursor: 'pointer', backgroundColor: '#e67e22', color: 'white', border: 'none', borderRadius: '5px', fontWeight: 'bold' }}>
-                + Info
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* EL POPUP (MODAL) */}
-      <Modal
-        isOpen={personajeSeleccionado !== null}
-        onClose={() => setPersonajeSeleccionado(null)}
-      >
+      {/* 2. EL MODAL (LA VENTANA FLOTANTE) */}
+      <Modal isOpen={personajeSeleccionado !== null} onClose={() => setPersonajeSeleccionado(null)}>
         {personajeSeleccionado && (
-          <div>
-            <h2>{personajeSeleccionado.nombre}</h2>
+          <div style={{ textAlign: 'center',  fontSize: '25px', }}>
+            {/* Cabecera del Modal (Foto y Nombre) */}
+            <img
+                          src={`/src/img/Personajes/${personajeSeleccionado.nombre}.png`}
+                          alt={personajeSeleccionado.nombre}
+                          style={{ width: '150px', height: '150px', borderRadius: '10px', marginBottom: '15px', objectFit: 'cover', backgroundColor: '#1a252f' }}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = '/src/assets/hero.png';
+                          }}
+                        />
+            <h2 style={{ color: '#e67e22' }}>{personajeSeleccionado.nombre}</h2>
+            <p style={{ fontStyle: 'italic', marginBottom: '20px' }}>"{personajeSeleccionado.descripcion}"</p>
 
-            {/* Contenedor Flex para poner las dos tablas lado a lado */}
-            <div style={{ display: 'flex', gap: '30px', marginTop: '20px' }}>
+            <div style={{ display: 'flex', gap: '20px', textAlign: 'left' }}>
 
-              {/* Tabla 1: Datos Base */}
-              <div style={{ flex: 1, backgroundColor: '#1a252f', padding: '15px', borderRadius: '8px' }}>
-                <h3 style={{ borderBottom: '1px solid #555', paddingBottom: '10px' }}>Datos Generales</h3>
-                <p><strong>Arma:</strong> {personajeSeleccionado.nombreArma}</p>
-                <p><strong>Habilidad:</strong> {personajeSeleccionado.habilidad}</p>
-                <p><strong>Obtención:</strong> {personajeSeleccionado.obtencion}</p>
+              {/* Tabla 1: Datos Base (Ficha Técnica) */}
+              <div style={{ flex: 1, backgroundColor: '#1a252f', padding: '15px', borderRadius: '8px', fontSize: '25px', }}>
+                <h4 style={{ borderBottom: '1px solid #e67e22', marginBottom: '10px' }}>Ficha Técnica</h4>
+                <p style={{ margin: '5px 0' }}><strong>Arma:</strong> {personajeSeleccionado.nombreArma}</p>
+                <p style={{ margin: '5px 0' }}><strong>Descripción:</strong> {personajeSeleccionado.descripcion}</p>
+                <p style={{ margin: '5px 0' }}><strong>Habilidad:</strong> {personajeSeleccionado.habilidad}</p>
+                <p style={{ margin: '5px 0' }}><strong>Obtención:</strong> {personajeSeleccionado.obtencion}</p>
               </div>
 
-              {/* Tabla 2: Estadísticas */}
-              <div style={{ flex: 1, backgroundColor: '#1a252f', padding: '15px', borderRadius: '8px' }}>
-                <h3 style={{ borderBottom: '1px solid #555', paddingBottom: '10px' }}>Estadísticas Base</h3>
-                <p><em>(Aquí irán las estadísticas haciendo una llamada a /estadisticas/{personajeSeleccionado.idPersonajes})</em></p>
-                <p><strong>Vida:</strong> 100</p>
-                <p><strong>Armadura:</strong> 10</p>
-              </div>
+              {/* Tabla 2: Estadísticas Reales (El bloque automático) */}
+              <div style={{ flex: 1, backgroundColor: '#1a252f', padding: '15px', borderRadius: '8px', fontSize: '25px',}}>
+                <h4 style={{ borderBottom: '1px solid #3498db', marginBottom: '10px' }}>Atributos</h4>
 
+                {!stats ? (
+                  <p>Cargando estadísticas...</p>
+                ) : (
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', }}>
+                    {Object.entries(stats).map(([clave, valor]) => {
+                      // 1. Ocultar datos técnicos
+                      if (clave === 'idEstadistica' || clave === 'id' || clave === 'personaje' || clave === 'idPersonaje' || clave === 'nombrePersonaje') {
+                        return null;
+                      }
+
+                      // 2. Seguridad contra objetos
+                      if (typeof valor === 'object' && valor !== null) return null;
+
+                      const nombreFormateado = clave
+                        .replace(/([A-Z])/g, ' $1')
+                        .replace(/_/g, ' ') // También quitamos guiones bajos si los hay
+                        .replace(/^./, (str) => str.toUpperCase());
+
+                      return (
+                        <div key={clave} style={{
+                          display: 'flex',
+                          justifyContent: 'space-between', // Nombre a la izquierda, número a la derecha
+                          alignItems: 'flex-start',       // Si el nombre es muy largo, el número se queda arriba
+                          padding: '6px 0',
+                          borderBottom: '1px solid #2c3e50', // Una línea sutil para separar
+                          fontSize: '20px'
+                        }}>
+                          <span style={{ color: '#bdc3c7', paddingRight: '10px', flex: '1' }}>
+                            {nombreFormateado}
+                          </span>
+                          <span style={{ fontWeight: 'bold', color: '#3498db', textAlign: 'right' }}>
+                            {valor !== null ? valor : '0'}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}
       </Modal>
-    </div>
+    </>
   );
 }
 

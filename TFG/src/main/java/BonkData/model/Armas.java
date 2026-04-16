@@ -11,13 +11,15 @@ public class Armas {
     private Long id;
     private String nombre;
     private String descripcion;
+    private String afinidad;
     private String obtencion;
 
     public Armas() {}
 
-    public Armas(String nombre, String descripcion, String obtencion) {
+    public Armas(String nombre, String descripcion, String afinidad,String obtencion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.afinidad = afinidad;
         this.obtencion = obtencion;
     }
 
@@ -42,6 +44,8 @@ public class Armas {
         this.descripcion = descripcion;
     }
 
+    public String getAfinidad() { return afinidad; }
+    public void setAfinidad(String afinidad) { this.afinidad = afinidad; }
 
     public String getObtencion() {
         return obtencion;

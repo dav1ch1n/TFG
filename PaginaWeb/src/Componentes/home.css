@@ -1,0 +1,74 @@
+/* src/Pages/Home.css */
+
+/* Contenedor principal de la página de inicio */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Título de la página (por si tienes un <h1>) */
+.home-container h1 {
+  font-size: 3.5rem;
+  margin-bottom: 50px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para que destaque */
+}
+
+/* Cuadrícula donde van los botones */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas del mismo tamaño */
+  gap: 25px; /* Espacio entre los botones */
+  width: 100%;
+  max-width: 900px; /* Ancho máximo para que no se estire demasiado en monitores gigantes */
+}
+
+/* El diseño base de cada botón del menú */
+.menu-button {
+  background-color: #2c3e50; /* Tu azul oscuro característico */
+  color: white;
+  padding: 40px 20px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Sombra base */
+  transition: all 0.3s ease; /* Hace que las animaciones sean fluidas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid transparent; /* Preparando el borde para el hover */
+}
+
+/* Animación y efecto al pasar el ratón por encima (Hover) */
+.menu-button:hover {
+  transform: translateY(-10px); /* Hace que el botón "flote" hacia arriba */
+  background-color: #34495e; /* Se vuelve un tono más claro */
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.6); /* La sombra se hace más grande al flotar */
+  border: 2px solid #3498db; /* Le sale un bordecito azul brillante */
+}
+
+/* ---------------------------------------------------
+Movil
+--------------------------------------------------- */
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 2.5rem; /* Título más pequeño en móviles */
+    margin-bottom: 30px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr; /* Cambia a 1 sola columna (uno debajo del otro) */
+    max-width: 400px;
+  }
+
+  .menu-button {
+    padding: 25px 15px;
+    font-size: 1.4rem;
+  }
+}

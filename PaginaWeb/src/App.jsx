@@ -1,7 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home';
-import Personajes from './Pages/Personajes' // Necesitamos crear esto ahora
-import './App.css';
+import Personajes from './Pages/Personajes';
+import Armas from './Pages/Armas';
+import Tomos from './Pages/Tomos';
+import Objetos from './Pages/Objetos';
+import './Componentes/index.css';
 
 const VistaConstruccion = ({ nombre }) => (
   <div style={{ padding: '50px', textAlign: 'center' }}>
@@ -17,9 +20,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/personajes" element={<Personajes />} />
-        <Route path="/armas" element={<VistaConstruccion nombre="Armas" />} />
-        <Route path="/tomos" element={<VistaConstruccion nombre="Tomos" />} />
-        <Route path="/objetos" element={<VistaConstruccion nombre="Objetos" />} />
+        <Route path="/armas" element={<Armas />} />
+        <Route path="/tomos" element={<Tomos />} />
+        <Route path="/objetos" element={<Objetos />} />
       </Routes>
     </Router>
   );
