@@ -1,0 +1,171 @@
+.tablas-container {
+  padding: 30px 20px;
+  color: white;
+  width: 75%;
+  max-with: 95%;
+  margin:auto;
+  background-image: url("C:\Users\Administrador\Desktop\TFG\PaginaWeb\src\img\Fondos de pantalla\campo.jpg");
+  background-size: cover;
+}
+
+.tablas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tablas-titulo {
+  font-size: 2rem;
+}
+
+.tablas-volver {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.tablas-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tablas-fila {
+  display: flex;
+  background-color: #2c3e50;
+  padding: 20px 25px;
+  border-radius: 10px;
+  align-items: center;
+  gap: 15px;
+}
+
+.tablas-img-col {
+  flex: 0 0 auto;
+}
+
+.tablas-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #1a252f;
+}
+
+.tablas-info-col {
+  flex: 1;
+  padding: 0 10px;
+  min-width: 0; /* evita overflow de texto */
+}
+
+.tablas-nombre {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.tablas-subtitulo {
+  color: #bdc3c7;
+  font-size: 1.2rem;
+  word-break: break-word;
+}
+
+.tablas-btn-col {
+  flex: 0 0 auto;
+}
+
+.tablas-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* ── TABLET ── */
+@media (max-width: 768px) {
+  .tablas-container {
+    width: 95%;
+    padding: 20px 15px;
+    background-image: url("C:\Users\Administrador\Desktop\TFG\PaginaWeb\src\img\Fondos de pantalla\campo.jpg");
+    background-size: cover;  }
+
+  .tablas-titulo {
+    font-size: 1.6rem;
+  }
+
+  .tablas-fila {
+    padding: 15px;
+  }
+
+  .tablas-img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .tablas-nombre {
+    font-size: 1.3rem;
+  }
+
+  .tablas-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+/* ── MÓVIL ── */
+@media (max-width: 480px) {
+  .tablas-container {
+    width: 100%;
+    padding: 15px 10px;
+  }
+
+  .tablas-titulo {
+    font-size: 1.3rem;
+  }
+
+  .tablas-volver {
+    font-size: 1rem;
+  }
+
+  .tablas-fila {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .tablas-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .tablas-info-col {
+    padding: 0;
+    width: 100%;
+  }
+
+  .tablas-nombre {
+    font-size: 1.1rem;
+  }
+
+  .tablas-subtitulo {
+    font-size: 0.9rem;
+  }
+
+  .tablas-btn-col {
+    width: 100%;
+  }
+
+  .tablas-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
