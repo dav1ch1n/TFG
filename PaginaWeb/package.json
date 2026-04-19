@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start-all": "concurrently \"npm run dev\" \"cd ../TFG && mvn spring-boot:run\""
+    "start-all": "concurrently \"npm run dev\" \"C:\\Users\\Administrador\\.jdks\\ms-21.0.10 && mvn spring-boot:run\""
   },
   "dependencies": {
     "axios": "^1.14.0",
@@ -20,6 +20,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
