@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 15px; /* Evita que el modal toque los bordes en móvil */
+  padding: 15px;
 }
 
 .modal-content {
@@ -47,7 +47,6 @@
   font-size: 1rem;
   line-height: 1;
 }
-/* DISEÑO PARA PC (Pantallas grandes) */
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2 columnas */
@@ -59,7 +58,7 @@
 @media (max-width: 480px) {
   .modal-content {
     padding: 20px 15px;
-    padding-top: 45px; /* espacio para el botón X */
+    padding-top: 45px;
     max-height: 90vh;
     border-radius: 8px;
   }
@@ -74,10 +73,8 @@
   .stats-grid {
     grid-template-columns: 1fr !important; /* Forzamos 1 sola columna */
   }
-
-  /* Ajuste extra para que el texto no se salga de la pantalla en móvil */
   .stats-grid > div {
-    font-size: 16px !important; /* Letra un pelín más pequeña */
-    word-break: break-word; /* Si una palabra es gigante, la parte en dos */
+    font-size: 16px !important;
+    word-break: break-word;
   }
 }

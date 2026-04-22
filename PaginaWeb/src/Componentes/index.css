@@ -24,7 +24,6 @@ html, body {
   max-width: 100%;
 }
 
-/* Imágenes responsive por defecto */
 img {
   max-width: 100%;
   height: auto;

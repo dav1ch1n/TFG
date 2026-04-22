@@ -9,7 +9,6 @@ function Personajes() {
     const [personajeSeleccionado, setPersonajeSeleccionado] = useState(null);
     const [stats, setStats] = useState(null);
 
-    // NUEVO: Estado para controlar la pestaña activa (info o stats)
     const [tabActiva, setTabActiva] = useState('info');
 
     useEffect(() => {
@@ -48,7 +47,7 @@ function Personajes() {
     return (
         <>
             <TablasGenerica
-                titulo="Compendio de Personajes"
+                titulo="Personajes"
                 datos={personajes}
                 carpetaImg="Personajes"
                 campoSubtitulo="descripcion"
@@ -87,7 +86,7 @@ function Personajes() {
                         {/* Contenedor de Contenido */}
                         <div style={{ backgroundColor: '#1a252f', padding: '20px', borderRadius: '0 0 8px 8px', textAlign: 'left', minHeight: '300px' }}>
 
-                            {/* VISTA 1: FICHA TÉCNICA */}
+                            {/*FICHA TÉCNICA */}
                             {tabActiva === 'info' && (
                             <div style={{ animation: 'fadeIn 0.3s' }}>
                                 <h4 style={{ color: '#e67e22', borderBottom: '1px solid #e67e22', marginBottom: '15px', paddingBottom: '5px' }}>Detalles</h4>

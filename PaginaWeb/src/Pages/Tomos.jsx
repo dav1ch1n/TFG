@@ -16,16 +16,16 @@ const abrirDetalles = (item) => {
 
   return (
     <>
-      {/* 1. USAMOS LA TABLA COMÚN */}
+      {/*USAMOS LA TABLA COMÚN */}
       <TablasGenerica
-        titulo="Compendio de Tomos"
+        titulo="Tomos"
         datos={Tomos}
         carpetaImg="Tomos"
         campoSubtitulo="descripcion"
         onInfoClick={abrirDetalles}
       />
 
-      {/* 2. EL MODAL (LA VENTANA FLOTANTE) */}
+      {/*EL MODAL (LA VENTANA FLOTANTE) */}
       <Modal isOpen={Tomoseleccionado !== null} onClose={() => setTomoseleccionado(null)}>
         {Tomoseleccionado && (
           <div style={{ textAlign: 'center',  fontSize: '25px', }}>

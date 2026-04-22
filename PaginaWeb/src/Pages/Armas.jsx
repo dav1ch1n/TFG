@@ -16,16 +16,16 @@ function Armas() {
 
   return (
     <>
-      {/* 1. USAMOS LA TABLA COMÚN */}
+      {/* USAMOS LA TABLA COMÚN */}
       <TablasGenerica
-        titulo="Compendio de Armas"
+        titulo="Armas"
         datos={Armas}
         carpetaImg="Armas"
         campoSubtitulo="descripcion"
         onInfoClick={abrirDetalles}
       />
 
-      {/* 2. EL MODAL (LA VENTANA FLOTANTE) */}
+      {/* EL MODAL (LA VENTANA FLOTANTE) */}
       <Modal isOpen={Armaseleccionado !== null} onClose={() => setArmaseleccionado(null)}>
         {Armaseleccionado && (
           <div style={{ textAlign: 'center',  fontSize: '25px', }}>
@@ -44,7 +44,7 @@ function Armas() {
 
             <div style={{ display: 'flex', gap: '20px', textAlign: 'left' }}>
 
-              {/* Tabla 1: Datos Base (Ficha Técnica) */}
+              {/* Datos Base (Ficha Técnica) */}
               <div style={{ flex: 1, backgroundColor: '#1a252f', padding: '15px', borderRadius: '8px', fontSize: '25px', }}>
                 <h4 style={{ borderBottom: '1px solid #e67e22', marginBottom: '10px' }}>Ficha Técnica</h4>
                 <p style={{ margin: '5px 0' }}><strong>Arma:</strong> {Armaseleccionado.nombre}</p>
